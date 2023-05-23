@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Menu from './components/Menu';
+import HomePage from './components/menu-pages/HomePage';
+import DriftPage from './components/menu-pages/DriftPage';
+import ForzaPage from './components/menu-pages/ForzaPage';
+import TimeAttackPage from './components/menu-pages/TimeAttackPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Menu />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/drift" element={<DriftPage />} />
+        <Route path="/forza" element={<ForzaPage />} />
+        <Route path="/timeattack" element={<TimeAttackPage />} />
+      </Routes>
+    </Router>
+
   );
 }
 
